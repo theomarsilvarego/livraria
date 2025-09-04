@@ -1,0 +1,8 @@
+FROM mysql:8.0
+
+# Variáveis de ambiente (o compose também pode sobrescrever)
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=mydatabase
+
+# Copia script de inicialização para a pasta que o MySQL reconhece
+COPY ./init.sql /docker-entrypoint-initdb.d/
